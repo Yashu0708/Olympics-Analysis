@@ -11,7 +11,7 @@ df = pd.read_csv('athlete_events.csv')
 region_df = pd.read_csv('noc_regions.csv')
 
 df = preprocessor.preprocess(df, region_df)
-
+st.sidebar.image('https://1000logos.net/wp-content/uploads/2021/03/Olympics-logo.png')
 user_menu = st.sidebar.radio(
     'Select an Option',
     ('Medal Tally', 'Overall Analysis', 'Country-wise Analysis', 'Athlete wise Analysis')
