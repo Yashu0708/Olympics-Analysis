@@ -28,6 +28,8 @@ def fetch_medal_tally(df, year, country):
     x['total'] = x['total'].astype('int')
 
     return x
+
+
 def country_year_list(df):
     years = df['Year'].unique().tolist()
     years.sort()
@@ -38,3 +40,12 @@ def country_year_list(df):
     country.insert(0, 'Overall')
 
     return years,country
+
+def data_over_time(df,col):
+    temp_df = df.drop_duplicates(['Year', col])['Year'].value_counts().reset_index()
+    nations_over_time = temp_df.sort_values(temp_df.columns.tolist()[0])
+    nations_over_time.rename(columns={'index': 'Edition', 'Year': col}, inplace=True)
+    return nations_over_time
+
+
+
